@@ -5,6 +5,13 @@
             <p>This is footer</p>
         </div>
     </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="footer_cp_text text-center" style="background-color: {{ section.settings.cp_background }};">
+                <p  style="background-color: {{ section.settings.cp_text_color }};">{{ section.settings.cp_copyright_text }}</p>
+            </div>
+        </div>
+    </div>
    </div>
 </div>
 
@@ -12,7 +19,24 @@
 {
     "name": "Footer Area",
     "settings": [
-        
-        ]
+        {
+            "label": "Background Color",
+            "id": "cp_background",
+            "type": "color",
+            "default": "#f1f1f1"
+        },
+        {
+            "label": "Text Color",
+            "id": "cp_text_color",
+            "type": "color",
+            "default": "#333333"
+        },
+        {
+            "label": "Copyright Text",
+            "id": "cp_copyright_text",
+            "type": "text",
+            "default": "© 2025 Your Website. All rights reserved."
+        }
+    ]
 }
 {% endschema %}
