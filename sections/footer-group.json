@@ -8,21 +8,24 @@
  * ------------------------------------------------------------
  */
 {
-    "name": "Footer Group",
-    "type": "footer",
-    "sections": {
-        "footer":{
-            "type": "footer", // This must have to be the liquid file name before .liquid
-            "settings": {}
-        },
-        "footer_subs":{
-            "type": "sub-footer", // This must have to be the liquid file name before .liquid
-            "settings": {}
-        }
-
+  "name": "Footer Group",
+  "type": "footer",
+  "sections": {
+    "footer_subs": {
+      "type": "sub-footer",
+      "settings": {}
     },
-    "order":[
-        "footer_subs",
-        "footer"  // Add other sections as needed
-    ]
+    "footer": {
+      "type": "footer",
+      "settings": {
+        "cp_background": "#fe0000",
+        "cp_text_color": "#ffffff",
+        "cp_copyright_text": "© 2025 Your Website. All rights reserved."
+      }
+    }
+  },
+  "order": [
+    "footer_subs",
+    "footer"
+  ]
 }
