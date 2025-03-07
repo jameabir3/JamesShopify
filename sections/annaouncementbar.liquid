@@ -5,7 +5,7 @@
     </p>
    </div>
    <div class="container">
-    <a href="{{ section.settings.btnLink }}">{{ section.settings.btnLink }}</a>
+    <a href="{{ section.settings.btnLink }}">{{ section.settings.btnText }}</a>
     
    </div>
  </div>
@@ -25,7 +25,13 @@
             "type": "text",
             "id": "btnLink",
             "label": "Button Link",
-            "default": "Button"
+            "default": "https://example.com"
+        },
+        {
+            "type": "text",
+            "id": "btnText",
+            "label": "Button Text",
+            "default": "Click Here"
         }
     ]
  }
