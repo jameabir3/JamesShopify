@@ -4,6 +4,10 @@
         {{ section.settings.anctMessage }}
     </p>
    </div>
+   <div class="container">
+    <a href="{{ section.settings.btnLink }}">{{ section.settings.btnLink }}</a>
+    
+   </div>
  </div>
 
  {% schema %}
@@ -16,6 +20,12 @@
             "label": "Text",
             "default": "Sign up and get 30% off to your first order. Sign Up Now"
  
+        },
+        {
+            "type": "text",
+            "id": "btnLink",
+            "label": "Button Link",
+            "default": "Button"
         }
     ]
  }

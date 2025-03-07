@@ -1,3 +1,26 @@
 html{
     margin: 0;
 }
+
+body{
+    font-family: "Outfit", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-weight: 700;
+}
+
+/* Header area css start */
+
+.announcementbar {
+    background: #000;
+    color: #fff;
+    padding: 10px;
+  }
+  .announcementbar p {
+    margin: 0;
+  }
+
+  /* Header area css end */
