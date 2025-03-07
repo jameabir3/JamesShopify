@@ -12,11 +12,11 @@
     "type": "header",
     "sections": {
         "announcement": {
-            "type": "annaouncementbar",
+            "type": "annaouncementbar", // This must have to be the liquid file name before .liquid
             "settings": {}
         },
         "header": {
-            "type": "header",
+            "type": "header", // This must have to be the liquid file name before .liquid
             "settings": {}
         }
     },

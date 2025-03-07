@@ -1,12 +1,22 @@
  <div class="announcementbar">
-    <p>Sign up and get 20% off to your first order. <a href="#">Sign Up Now</a></p>
+   <div class="continer text-center">
+    <p>
+        {{ section.settings.anctMessage }}
+    </p>
+   </div>
  </div>
 
  {% schema %}
  {
     "name": "Announcement bar",
     "settings": [
-        
-        ]
+        {
+            "type": "text",
+            "id": "anctMessage",
+            "label": "Text",
+            "default": "Sign up and get 30% off to your first order. Sign Up Now"
+ 
+        }
+    ]
  }
  {% endschema %}

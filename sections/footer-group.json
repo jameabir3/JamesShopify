@@ -12,11 +12,11 @@
     "type": "footer",
     "sections": {
         "footer":{
-            "type": "footer",
+            "type": "footer", // This must have to be the liquid file name before .liquid
             "settings": {}
         },
         "footer_subs":{
-            "type": "sub-footer",
+            "type": "sub-footer", // This must have to be the liquid file name before .liquid
             "settings": {}
         }
 
