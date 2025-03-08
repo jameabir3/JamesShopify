@@ -41,6 +41,7 @@ h1, h2, h3, h4, h5, h6{
   .site-menu ul li {
     display: inline-block;
     margin-left: 24px;
+    position: relative;
   }
   .site-menu ul li a {
     color: #000000;
@@ -48,6 +49,38 @@ h1, h2, h3, h4, h5, h6{
   }
   .header__area {
     padding: 24px 0;
+  }
+
+
+.site-menu ul li ul {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background: #f1f1f1;
+    color: #fff;
+    width: 185px;
+    transition: .3s;
+    z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+  }
+  .site-menu ul li ul a {
+    color: #000;
+    display: block;
+    padding: 10px 20px;
+    border-bottom: 1px solid #dddddda3;
+  }
+  .site-menu ul li ul li {
+    margin: 0;
+    display: block;
+  }
+  .site-menu ul li ul li:last-child a {
+    border: none;
+  }
+  .site-menu ul li:hover ul {
+    top: 14px;
+    opacity: 1;
+    visibility: visible;
   }
 
   /* Header area css end */
