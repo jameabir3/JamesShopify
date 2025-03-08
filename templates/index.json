@@ -8,13 +8,18 @@
  * ------------------------------------------------------------
  */
 {
-    "sections": {
-        "image_banner": {
-            "type": "image-banner",
-            "settings": {}
-        }
-    },
-    "order":[
-        "image_banner"
-    ]
+  "sections": {
+    "image_banner": {
+      "type": "image-banner",
+      "settings": {
+        "hero_title": "FIND CLOTHES THAT MATCHES YOUR STYLE",
+        "hero_subtitle": "Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and cater to your sense of style.",
+        "hero-btn": "See More",
+        "hero-btn-url": "https://jamescoders.com"
+      }
+    }
+  },
+  "order": [
+    "image_banner"
+  ]
 }
