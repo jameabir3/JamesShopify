@@ -23,4 +23,31 @@ h1, h2, h3, h4, h5, h6{
     margin: 0;
   }
 
+
+
+.header_content {
+    display: flex;
+    align-items: center;
+  }
+
+  .site-logo a img {
+    width: 160px;
+  }
+  .site-menu ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .site-menu ul li {
+    display: inline-block;
+    margin-left: 24px;
+  }
+  .site-menu ul li a {
+    color: #000000;
+    text-decoration: none;
+  }
+  .header__area {
+    padding: 24px 0;
+  }
+
   /* Header area css end */

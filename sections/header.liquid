@@ -1,12 +1,38 @@
 <div class="header__area">
-    <h1>FIND CLOTHES THAT MATCHES YOUR STYLE</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="header_content">
+                    <div class="site-logo">
+                        <a href=""><img src="{{ 'site-logo.png' | asset_url }}" alt=""></a>
+                    </div>
+                    <div class="site-menu">
+                        <ul>
+                            {% for link in section.settings.header-menu.links %}
+                            <li><a href="{{link.url}}">{{link.title}}</a></li>
+                            {% endfor %}
+                            
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 {% schema %}
 {
     "name": "Header Area",
-    "settings": [
-        
-        ]
+    "settings":[
+         
+        {
+            "type": "link_list", 
+            "id" : "header-menu", 
+            "label": "Header Main Menu"
+            
+            
+        }
+    ]
 }
 {% endschema %}
