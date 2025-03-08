@@ -2,7 +2,6 @@
     {% if section.settings.header_bg_img != blank %}
         style="background-image: url('{{ section.settings.header_bg_img |  image_url: width:auto }}');"
         {% endif %}>
->
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -10,7 +9,7 @@
                     <div class="hero_content_left">
                         <h1>{{ section.settings.hero_title  }}</h1>
                         <p>{{ section.settings.hero_subtitle }}</p>
-                        <a href="">Shop Now</a>
+                        <a href="{{ section.settings.hero-btn-url }}">{{ section.settings.hero-btn }}</a>
                         <div class="brakds-wrok-block">
                             <div class="single_brand-work">
                                 <h3>200+ <span>International Brands</span></h3>
@@ -63,6 +62,18 @@
             "id": "hero_subtitle",
             "label": "Hero Subtitle",
             "default": "Add HERE HERO SUBTITLE"
+        }, 
+        {
+            "type": "text",
+            "id": "hero-btn",
+            "label": "Hero Button Text",
+            "default": "See More"
+        }, 
+        {
+            "type": "text",
+            "id": "hero-btn-url",
+            "label": "Hero Button URL",
+            "default": "google.com"
         }
         
     ]
