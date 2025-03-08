@@ -8,12 +8,16 @@
                 <div class="hero_content">
                     <div class="hero_content_left">
                         <h1>{{ section.settings.hero_title  }}</h1>
-                        <p>{{ section.settings.hero_subtitle }}</p>
+                        {% if section.settings.hero_subtitle != blank %}
+                            <p>{{ section.settings.hero_subtitle }}</p>
+                        {% endif %}
+
                         <a href="{{ section.settings.hero-btn-url }}">{{ section.settings.hero-btn }}</a>
+
                         <div class="brakds-wrok-block">
-                        {% for block in section.blocks %}
+                        {% for i in (1..4) %}
                             <div class="single_brand-work">
-                            <h3>{{ block.settings.brand_work_number }} <span>{{ block.settings.brand_work_text }}</span></h3>
+                                <h3>200+ <span>International Brands</span></h3>
                             </div>
                         {% endfor %}
                         </div>
@@ -67,36 +71,11 @@
             "type": "text",
             "id": "hero-btn-url",
             "label": "Hero Button URL",
-            "default": "google.com"
+            "default": "https://jamescoders.com"
         }
+
         
         
-    ],
-    "blocks": [
-        {
-            "type": "brand_block",
-            "name": "Brand Block",
-            "settings": [
-                {
-                    "type": "text",
-                    "id": "brand_work_number",
-                    "label": "Brand Block Number",
-                    "default": "200+"
-                },
-                {
-                    "type": "text",
-                    "id": "brand_work_text",
-                    "label": "Brand Block Text",
-                    "default": "International Brands"
-                }
-            ]
-        }
-    ],
-    "presets": [
-        {
-            "name": "Default",
-            "category": "Custom"
-        }
     ]
 }
 {% endschema %}
