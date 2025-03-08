@@ -8,20 +8,26 @@
  * ------------------------------------------------------------
  */
 {
-    "name": "Header Group",
-    "type": "header",
-    "sections": {
-        "announcement": {
-            "type": "annaouncementbar", // This must have to be the liquid file name before .liquid
-            "settings": {}
-        },
-        "header": {
-            "type": "header", // This must have to be the liquid file name before .liquid
-            "settings": {}
-        }
+  "name": "Header Group",
+  "type": "header",
+  "sections": {
+    "announcement": {
+      "type": "annaouncementbar",
+      "settings": {
+        "anctMessage": "Sign up and get 30% off to your first order. Sign Up Now",
+        "btnLink": "https://example.com",
+        "btnText": "Click Here"
+      }
     },
-    "order":[
-        "announcement",
-        "header"  // Add other sections as needed
-    ]
+    "header": {
+      "type": "header",
+      "settings": {
+        "header-menu": "header-menu"
+      }
+    }
+  },
+  "order": [
+    "announcement",
+    "header"
+  ]
 }
