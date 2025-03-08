@@ -1,4 +1,8 @@
-<div class="hero-area-{{section.id}}">
+<div class="hero-area-{{section.id}}"
+    {% if section.settings.header_bg_img != blank %}
+        style="background-image: url('{{ section.settings.header_bg_img |  image_url: width:auto }}');"
+        {% endif %}>
+>
     <div class="container">
         <div class="row">
             <div class="col-12">

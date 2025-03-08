@@ -8,18 +8,13 @@
  * ------------------------------------------------------------
  */
 {
-  "sections": {
-    "image_banner": {
-      "type": "image-banner",
-      "settings": {
-        "header_bg_img": "shopify://shop_images/new-years-eve-518032_640_1.jpg",
-        "hero_img": "shopify://shop_images/pexels-adonyi-foto-1400172.jpg",
-        "hero_title": "Add HERE HERO TITLE",
-        "hero_subtitle": "Add HERE HERO SUBTITLE"
-      }
-    }
-  },
-  "order": [
-    "image_banner"
-  ]
+    "sections": {
+        "image_banner": {
+            "type": "image-banner",
+            "settings": {}
+        }
+    },
+    "order":[
+        "image_banner"
+    ]
 }
