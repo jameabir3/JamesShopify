@@ -10,6 +10,13 @@
                         <ul>
                             {% for link in section.settings.header-menu.links %}
                             <li><a href="{{link.url}}">{{link.title}}</a></li>
+                            <li>
+                                <ul>
+                                    {% for sublink in link.children %}
+                                    <li><a href="{{sublink.url}}">{{sublink.title}}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
                             {% endfor %}
                             
                             
