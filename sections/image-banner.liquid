@@ -23,7 +23,11 @@
                         </div>
                     </div>
                     <div class="hero_content_right">
-                        <img src="{{ section.settings.hero_img }}" alt="{{ shop.name }}">
+                        {% if section.settings.hero_img != blank %}
+                        <img src="{{ section.settings.hero_img |  image_url: width:auto }}" alt="{{ shop.name }}">
+                        {% else %}
+                        <img src="{{ 'hero-img.png' |  asset_url }}" alt="{{ shop.name }}">
+                        {% endif %}
                     </div>
                 </div>
             </div>
