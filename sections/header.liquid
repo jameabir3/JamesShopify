@@ -12,6 +12,7 @@
                             <li><a href="{{link.url}}">{{link.title}}</a></li>
                                 {% if link.links.size > 1 %}
                                     <li>
+                                        <a href="{{link.url}}">{{link.title}}</a>
                                         <ul class="submenu">
                                             {% for sublink in link.links %}
                                             <li><a href="{{sublink.url}}">{{sublink.title}}</a></li>
