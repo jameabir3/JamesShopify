@@ -1,11 +1,24 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-    "sections": {
-        "image_banner": {
-            "type": "image-banner",
-            "settings": {}
-        }
-    },
-    "order":[
-        "image_banner"
-    ]
+  "sections": {
+    "image_banner": {
+      "type": "image-banner",
+      "settings": {
+        "hero_img": "shopify://shop_images/hero-img.png",
+        "hero_title": "Add HERE HERO TITLE",
+        "hero_subtitle": "Add HERE HERO SUBTITLE"
+      }
+    }
+  },
+  "order": [
+    "image_banner"
+  ]
 }
