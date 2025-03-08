@@ -1,9 +1,62 @@
-<div class="image-banner-{{section.id}}">
-    Image Banner tested Jame Hello
+<div class="hero-area-{{section.id}}">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="hero_content">
+                    <div class="hero_content_left">
+                        <h1>{{ section.settings.hero_title  }}</h1>
+                        <p>{{ section.settings.hero_subtitle }}</p>
+                        <a href="">Shop Now</a>
+                        <div class="brakds-wrok-block">
+                            <div class="single_brand-work">
+                                <h3>200+ <span>International Brands</span></h3>
+                            </div>
+                            <div class="single_brand-work">
+                                <h3>200+ <span>International Brands</span></h3>
+                            </div>
+                            <div class="single_brand-work">
+                                <h3>200+ <span>International Brands</span></h3>
+                            </div>
+                            <div class="single_brand-work">
+                                <h3>200+ <span>International Brands</span></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero_content_right">
+                        <img src="{{ section.settings.hero_img }}" alt="{{ shop.name }}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% schema  %} 
 {
     "name": "Image Banner",
-    "settings": []
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "header_bg_img", 
+            "label": "Header Background"
+        }, 
+        {
+            "type": "image_picker",
+            "id": "hero_img",
+            "label": "Hero Image"
+        }, 
+        {
+            "type": "text",
+            "id": "hero_title",
+            "label": "Hero Title",
+            "default": "Add HERE HERO TITLE"
+        },
+        {
+            "type": "text",
+            "id": "hero_subtitle",
+            "label": "Hero Subtitle",
+            "default": "Add HERE HERO SUBTITLE"
+        }
+        
+    ]
 }
 {% endschema %}

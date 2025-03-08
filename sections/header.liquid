@@ -16,7 +16,7 @@
                         <ul>
                             {% for link in section.settings.header-menu.links %}
                             <li><a href="{{link.url}}">{{link.title}}</a></li>
-                                {% if link.links.size > 1 %}
+                                {% if link.links.size > 0 %}
                                     <li>
                                         <a href="{{link.url}}">{{link.title}}</a>
                                         <ul class="submenu">
