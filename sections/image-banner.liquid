@@ -11,13 +11,13 @@
                         <p>{{ section.settings.hero_subtitle }}</p>
                         <a href="{{ section.settings.hero-btn-url }}">{{ section.settings.hero-btn }}</a>
                         <div class="brakds-wrok-block">
-                            {% for i in (1..section.settings.number_of_brand_blocks)  %}
+                        {% for block in section.blocks %}
                             <div class="single_brand-work">
-                                <h3>{{ section.settings.brand_work_number }} <span>{{ section.settings.brand_work_text }}</span></h3>
+                            <h3>{{ block.settings.brand_work_number }} <span>{{ block.settings.brand_work_text }}</span></h3>
                             </div>
-                            {% endfor %}
-                            
+                        {% endfor %}
                         </div>
+
                     </div>
                     <div class="hero_content_right">
                         {% if section.settings.hero_img != blank %}
@@ -68,27 +68,35 @@
             "id": "hero-btn-url",
             "label": "Hero Button URL",
             "default": "google.com"
-        },
-        {
-            "type": "number",
-            "id": "number_of_brand_blocks",
-            "label": "Number of Brand Blocks",
-            "default": 4
-        },
-        {
-            "type": "text",
-            "id": "brand_work_number",
-            "label": "Brand Work Number",
-            "default": "200+"
-        },
-        {
-            "type": "text",
-            "id": "brand_work_text",
-            "label": "Brand Work Text",
-            "default": "International Brandss"
         }
         
         
+    ],
+    "blocks": [
+        {
+            "type": "brand_block",
+            "name": "Brand Block",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "brand_work_number",
+                    "label": "Brand Block Number",
+                    "default": "200+"
+                },
+                {
+                    "type": "text",
+                    "id": "brand_work_text",
+                    "label": "Brand Block Text",
+                    "default": "International Brands"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Default",
+            "category": "Custom"
+        }
     ]
 }
 {% endschema %}
