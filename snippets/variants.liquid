@@ -1,0 +1,40 @@
+
+<div class="product_variants">
+
+    <div class="product-options">
+        {% for option in product.options_with_values %}
+                <label for="{{ option.name }}">{{ option.name }}</label> <br>
+                
+                    {% if variants_type == "pills" %}
+                        <div class="opt_list">
+                            {% for value in option.values %}
+                                <div class="single_size">
+                                    <label class="variant-pills">
+                                        <input type="radio" name="{{ option.name |  downcase }}" id="{{ value.name |  downcase }}" value="{{ value.name |  downcase }}">
+                                        <span class="variatn-button">{{ value.name |  upcase }}</span>
+                                    </label>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <br>
+                    {% else %}
+                        <div class="varian-selector">
+                            <select class="variant_selector form-control">
+                                {% for value in option.values %}
+                                    <option value="{{ value.name |  downcase }}">{{ value.name }}</option>
+                                {% endfor %}
+                                
+                            </select>
+                        </div>
+                    {% endif %}
+                
+        {% endfor %}
+    </div>
+
+    <select name="variant" id="">
+        <option value="">Select a variant</option>
+       {% for variant in product.variants %}
+        <option value="{{ variant.id }}">{{ variant.title }}</option> 
+       {% endfor %}
+    </select>
+</div>

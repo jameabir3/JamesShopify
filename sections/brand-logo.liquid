@@ -1,0 +1,86 @@
+<div class="brand_logo_area" style="
+background-color:{{ section.settings.section-color }};
+padding-top:{{ section.settings.padding-top}}px;
+padding-bottom:{{ section.settings.padding-bottom}}px;
+">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="brand-logos">
+                    {% for brandlogo in section.blocks %}
+                        <div class="single-logo">
+                            {% if brandlogo.settings.b-logo != blank %}
+                                {{ brandlogo.settings.b-logo |  image_url: width:200 |  image_tag }}
+                                {% else %}
+                                {{ 'collection-apparel-1' | placeholder_svg_tag:'pleaceholder-svg' }}   
+                            {% endif %}
+                            
+                        </div>
+                    {% endfor %}
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% schema %}
+{
+    "name": "Brand Logos",
+    "settings": [
+        {
+            "type": "color",
+            "label": "Section Color",
+            "id": "section-color",
+            "default": "#000000"
+        },
+        {
+            "type": "number",
+            "label": "Padding Top",
+            "id": "padding-top",
+            "default": 50
+        },
+        {
+            "type": "number",
+            "label": "Padding Bottom",
+            "id": "padding-bottom",
+            "default": 50
+        }
+    ],
+    "blocks": [
+        {
+            "type": "column",
+            "name": "Brand Logo",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "label": "Brand Logo",
+                    "id": "b-logo"
+                    
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Brand logo Section",
+            "category": "Brand Logo",
+            "blocks": [
+                {
+                    "type": "column"
+                },
+                {
+                    "type": "column"
+                },
+                {
+                    "type": "column"
+                },
+                {
+                    "type": "column"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

@@ -1,0 +1,81 @@
+<div class="content_image_area"  style="
+background-color:{{ section.settings.section-color }};
+padding-top:{{ section.settings.padding-top }}px;
+padding-bottom:{{ section.settings.padding-bottom }}px;
+">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="content_img">
+                    {% if section.settings.section_img != blank %}
+                        {{ section.settings.section_img |  image_url: width: 2000 |  image_tag  }}
+                        {% else %}
+                        <img src="{{ 'hero-img.png' |  asset_url }}" alt="">
+                    {% endif %}
+                    
+                    
+                </div>
+                
+            </div>
+            <div class="col-lg-6">
+                <h2>{{ section.settings.title }}</h2>
+                {{ section.settings.content }}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "Contet Image Section",
+    "settings": [
+        {
+            "type": "image_picker", 
+            "label": "Section Image",
+            "id": "section_img"
+        },
+        {
+            "type": "text",
+            "label": "Title",
+            "id": "title",
+            "default": "Default Title"
+
+        },
+        {
+            "type": "textarea",
+            "label": "Content",
+            "id": "content",
+            "default": "Default Content"
+        },
+        {
+            "type": "color",
+            "id": "section-color",
+            "label": "Add section color",
+            "default": "#dddddd"
+        },
+        {
+            "type": "number",
+            "label": "Padding Top",
+            "id": "padding-top",
+            "default": 80
+          
+        },
+        {
+            "type": "number",
+            "label": "Padding Bottom",
+            "id": "padding-bottom",
+            "default": 80
+          
+        }
+    ],
+       
+        
+    
+    "presets": [
+        {
+            "name": "Image Content",
+            "category": "Image Content",
+        }
+    ]
+}
+{% endschema %}

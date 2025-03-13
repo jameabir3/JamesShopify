@@ -1,3 +1,11 @@
+{% style  %}
+    .title_text{
+        max-width:{{ section.settings.content_width }}%;
+
+    }
+{% endstyle %}
+
+
 <div class="hero-area-{{section.id}}"
     {% if section.settings.header_bg_img != blank %}
         style="background-image: url('{{ section.settings.header_bg_img |  image_url: width:auto }}');"
@@ -7,7 +15,9 @@
             <div class="col-12">
                 <div class="hero_content">
                     <div class="hero_content_left">
+                        <div class="title_text">
                         <h1>{{ section.settings.hero_title  }}</h1>
+                        </div>
                         {% if section.settings.hero_subtitle != blank %}
                             <p>{{ section.settings.hero_subtitle }}</p>
                         {% endif %}
@@ -25,7 +35,7 @@
                     </div>
                     <div class="hero_content_right">
                         {% if section.settings.hero_img != blank %}
-                        <img src="{{ section.settings.hero_img |  image_url: width:auto }}" alt="{{ shop.name }}">
+                            {{ section.settings.hero_img |  image_url: width:650 |  image_tag: widths: '250, 280, 300, 330, 350, 400, 480' }}
                         {% else %}
                         <img src="{{ 'hero-img.png' |  asset_url }}" alt="{{ shop.name }}">
                         {% endif %}
@@ -37,7 +47,7 @@
 </div>
 {% schema  %} 
 {
-    "name": "Image Banner",
+    "name": "Image Banner7",
     "settings": [
         {
             "type": "image_picker",
@@ -56,10 +66,28 @@
             "default": "Add HERE HERO TITLE"
         },
         {
-            "type": "text",
+            "type": "header",
+            "content": "Title width"
+            
+
+        },
+        {
+            "type": "range",
+            "id": "content_width",
+            "label": "Content Width",
+            "min": 50,
+            "max": 100,
+            "step": 1,
+            "unit": "%",
+            "default": 60
+            
+
+        },
+        {
+            "type": "richtext",
             "id": "hero_subtitle",
             "label": "Hero Subtitle",
-            "default": "Add HERE HERO SUBTITLE"
+            "default": "<p>Add HERE HERO SUBTITLE</p>"
         }, 
         {
             "type": "text",

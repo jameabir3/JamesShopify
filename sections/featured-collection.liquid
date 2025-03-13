@@ -1,0 +1,102 @@
+
+{% assign collections = section.settings.collection.products %}
+
+<div class="featured-collection-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-title">
+                    <h2>{{ section.settings.heading }}</h2>
+
+                    {% if section.settings.description != blank %}
+                        <div class="sub-description">
+                            {{ section.settings.description }}
+                        </div>
+                    {% endif %}
+                    
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="featured-lists">
+
+                {% for product in collections %}
+                    <div class="signle_featured_card">
+                        <div class="card-img">
+                            {{ product.featured_image |  image_url: width: 300 |  image_tag  }}
+                            <span class="sale-tag">Sale</span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{product.title}}</h5>
+                            <div class="product-price">
+                                {{ product.price |  money }}
+                            </div>
+                            <div class="cta">
+                                <a href="{{ product.url }}" class="site-btn">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                {% else %}
+                    {% for item in (1..8) %}
+                        <div class="signle_featured_card">
+                            <div class="card-img">
+                                
+                            {%- capture current -%}
+                                {%- cycle 1, 2, 3, 4 -%}
+                            {%- endcapture -%}
+
+                                 {{ 'product-apparel-' |  append: current |  placeholder_svg_tag: 'placeholder-svg' }}
+                                
+                                <span class="sale-tag">Sale</span>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Product {{forloop.index}}</h5>
+                                <div class="product-price">
+                                    $220
+                                </div>
+                                <div class="cta">
+                                    <a href="#" class="site-btn">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "Featured Products",
+    "settings": [
+        {
+            "type": "text",
+            "id": "heading",
+            "label": "Title",
+            "default": "Featured Products"
+        },
+        {
+            "type": "richtext",
+            "id": "description",
+            "label": "Description"
+        },
+        {
+            "type": "collection",
+            "id": "collection",
+            "label": "Select Collection"
+        }
+    ], 
+    "presets": [
+        {
+            "name": "Featured Collections",
+            "category": "collection"
+        }
+    ]
+}
+{% endschema %}

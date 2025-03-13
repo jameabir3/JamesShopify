@@ -1,0 +1,36 @@
+.product-img img{
+    width: 100%;
+}
+.opt_list {
+	display: flex;
+	gap: 12px;
+}
+
+
+/* Product variant CSS start */
+
+.variant-pills{
+    display: flex;
+    gap: 12px;
+}
+.variant-pills input[type="radio"] {
+    display: none;
+}
+
+.variant-pills .variatn-button {
+	border: 1px solid;
+	padding: 5px 14px;
+	font-size: 13px;
+	cursor: pointer;
+	border-radius: 22px;
+}
+.variant-pills input[type="radio"]:checked + .variatn-button {
+	background: #000;
+	color: #fff;
+	border-color: #000;
+}
+.variant-pills input[value="black"]:checked + span.variatn-button {
+	background: red;
+	border-color: red;
+}
+/* Product variant CSS end */
