@@ -1,0 +1,160 @@
+{{ 'product-template.css' |  asset_url |  stylesheet_tag }}
+{{ 'product-variant.js' |  asset_url |  script_tag }}
+
+<div class="product-template-{{ section.id }}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="product-img">
+                    {% for image in product.images %}
+                        {{ image.src |  image_url: width:600 |  image_tag }}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="product-details">
+                    {% assign form_id = 'product_form-' |  append: section.id %}
+                    {% form 'product', product, id: form_id, class: 'product-form' %}
+                        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                        {{ form |  payment_terms }}
+
+                        {% for block in section.blocks %}
+
+                            {% case block.type %}
+                                {% when '@app' %}
+                                    {% render block %}
+                                {% when 'text' %}
+                                   <p>{{ block.settings.text }}</p>
+                                {% when 'title' %}
+                                    <h2 class="product-title">{{ product.title }}</h2>
+                                {% when 'price' %}
+                                    <div class="product-price">
+                                        <span class="price">{{ product.price |  money_with_currency }}</span>
+                                        {% comment %} <span class="price">{{ product.selected_or_first_available_variant.price | money }}</span> {% endcomment %}
+                                    </div>
+                                {% when 'sku' %}
+                                    <div class="product-sku">
+                                        <p>SKU: {{ product.sku }}</p>
+                                    </div>
+                                 {% when 'description' %}
+                                   <div class="product-descripton">
+                                        <p>{{ product.description }}</p>
+                                   </div>
+                                 
+                                {% when 'quantity' %}
+                                    <div class="product-quantity">
+                                        <label for="quantity">Quantity:</label>
+                                        <input type="number" id="quantity" name="quantity" min="1" value="{{ product.selected_or_first_available_variant.quantity }}">
+                                    </div>
+                                {% when 'variants' %}
+                                    {% assign variants_type = block.settings.vr_btn_check %}
+                                    {% render 'variants', product: product, variants_type: variants_type %}
+                                       
+                                    
+                                {% when 'buy_buttons' %}
+                                    <div class="product-add-to-cart">
+                                        <button type="submit" name="add" class="btn btn-primary">Add to Cart</button>
+                                        
+                                    {% if block.settings.enable_dynamic_button %}
+                                        {{ form |  payment_button }}
+                                    {% endif %}
+
+                                        
+                                    </div>
+                                {% else %}
+                                    
+                            {% endcase %}
+
+                        {% endfor %}
+                    {% endform %}
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "Product Template",
+    "class": "product-template",
+    "settings": [
+        
+    ],
+    "blocks": [
+        {
+            "type": "@app"
+        },
+        {
+            "type": "text",
+            "name": "Text",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "text",
+                    "label": "Vendor",
+                    "default": "{{ product.vendor }}"
+                }
+            ]
+        },
+        {
+            "type": "title",
+            "name": "Title"
+        },
+        {
+            "type": "price",
+            "name": "Price",
+            "limit": 1
+        },
+        {
+            "type": "sku",
+            "name": "SKU"
+        },
+        {
+            "type": "quantity",
+            "name": "Quantity",
+            "limit": 1
+        },
+        {
+            "type": "variants",
+            "name": "Variants",
+            "settings": [
+                {
+                    "type": "select",
+                    "id": "vr_btn_check",
+                    "label": "Variant Pills",
+                    "options": [
+                        {
+                            "value": "pills",
+                            "label": "Pills"
+                        },
+                        {
+                            "value": "selector",
+                            "label": "Selector"
+                        }
+                    ],
+                    "default": "pills"
+                }
+            ],
+            "limit": 1
+        },
+        {
+            "type": "buy_buttons",
+            "name": "Buy Buttons",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "checkbox",
+                    "id": "enable_dynamic_button",
+                    "label": "Enable By Now",
+                    "default": true
+                }
+            ]
+        },
+        {
+            "type": "description",
+            "name": "Description"
+        }
+    ]
+}
+{% endschema %}

@@ -1,6 +1,9 @@
 
 <div class="product_variants">
 
+{% unless product.has_only_default_variant %}
+    
+
     <div class="product-options">
         {% for option in product.options_with_values %}
                 <label for="{{ option.name }}">{{ option.name }}</label> <br>
@@ -10,8 +13,12 @@
                             {% for value in option.values %}
                                 <div class="single_size">
                                     <label class="variant-pills">
-                                        <input type="radio" name="{{ option.name |  downcase }}" id="{{ value.name |  downcase }}" value="{{ value.name |  downcase }}">
-                                        <span class="variatn-button">{{ value.name |  upcase }}</span>
+                                        <input type="radio" name="{{ option.name |  downcase }}" id="{{ value.name |  downcase |  replace: ' ', '-'  }}" value="{{ value }}"
+                                        {% if option.selected_value == value %}
+                                            checked
+                                        {% endif %}
+                                        >
+                                        <span class="variatn-button">{{ value.name |  downcase |  replace: ' ', '-'  }}</span>
                                     </label>
                                 </div>
                             {% endfor %}
@@ -21,7 +28,11 @@
                         <div class="varian-selector">
                             <select class="variant_selector form-control">
                                 {% for value in option.values %}
-                                    <option value="{{ value.name |  downcase }}">{{ value.name }}</option>
+                                    <option value="{{ value.name |  downcase }}"
+                                    {% if option.selected_value == value %}
+                                        selected
+                                    {% endif %}
+                                    >{{ value.name }}</option>
                                 {% endfor %}
                                 
                             </select>
@@ -31,10 +42,11 @@
         {% endfor %}
     </div>
 
-    <select name="variant" id="">
-        <option value="">Select a variant</option>
+    <select class="variants" name="id">
+        
        {% for variant in product.variants %}
-        <option value="{{ variant.id }}">{{ variant.title }}</option> 
+        <option value="{{ variant.id }}" data-img="{{ variant.image }}">{{ variant.title }}</option> 
        {% endfor %}
     </select>
+{% endunless %}
 </div>
